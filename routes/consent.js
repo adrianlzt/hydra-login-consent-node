@@ -18,7 +18,8 @@ router.get('/', csrfProtection, function (req, res, next) {
   // This will be called if the HTTP request was successful
     .then(function (response) {
       // If a user has granted this application the requested scope, hydra will tell us to not show the UI.
-      if (response.skip) {
+      // We are login in our own platform, consent is implicit
+      if (response.skip || true) {
         // You can apply logic here, for example grant another scope, or do whatever...
         // ...
 
